@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <com.kt.mikky.motto.pick.effects.view.CropImageView
+        android:id="@+id/image_to_crop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true" />
+
+    <com.kt.mikky.motto.pick.effects.view.ProgressWheel
+        android:id="@+id/progressBarFour"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        ProgressWheel:barColor="#c00"
+        ProgressWheel:barLength="30dp"
+        ProgressWheel:barWidth="10dp"
+        ProgressWheel:delayMillis="75"
+        ProgressWheel:rimColor="#4000"
+        ProgressWheel:rimWidth="4dp"
+        ProgressWheel:spinSpeed="15dp"
+        ProgressWheel:text=""
+        ProgressWheel:textColor="#222222"
+        ProgressWheel:textSize="14sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

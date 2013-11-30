@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Photo Editor</string>
+  
+    <string name="hello_world">Hello world!</string>
+    <string name="pick_photo_save">Save</string>
+    <string name="pick_photo_camera">Camera</string>
+    <string name="pick_photo_album">Album</string>
+
+</resources>

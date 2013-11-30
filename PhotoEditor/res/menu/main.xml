@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_pick_album"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_content_new_picture"
+        android:title="@string/pick_photo_album"/>
+     <item
+        android:id="@+id/action_pick_save"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_content_save"
+        android:title="@string/pick_photo_save"/>
+      <item
+        android:id="@+id/action_pick_camera"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_device_access_camera"
+        android:title="@string/pick_photo_camera"/>
+
+</menu>

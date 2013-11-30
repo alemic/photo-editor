@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+     <color name="md__transparent">#fff</color>
+     <color name="md__list_text_color">#233</color>
+	<color name="md__list">#09c</color>
+    <color name="md__defaultBackground">#FF555555</color>
+    
+</resources>
