@@ -6,9 +6,13 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.GridView;
 
 import com.actionbarsherlock.app.SherlockFragment;
@@ -16,7 +20,7 @@ import com.kt.mikky.moto.pick.effects.adapter.Item;
 import com.kt.mikky.moto.pick.effects.adapter.MenuGridAdapter;
 import com.kt.mikky.motto.pick.effects.R;
 
-public class MenuFragment extends SherlockFragment{
+public class MenuFragment extends SherlockFragment implements OnItemClickListener{
 	
 	Context mContext;
 	
@@ -49,7 +53,14 @@ public class MenuFragment extends SherlockFragment{
 		GridView menuGrid = (GridView) view.findViewById(R.id.gridview);
 		menuGrid.setAdapter(new MenuGridAdapter(mContext, griditems));
 		
+		menuGrid.setOnItemClickListener(this);
+		
 		super.onViewCreated(view, savedInstanceState);
 	}
 
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long arg3) {
+		
+	}
 }

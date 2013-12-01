@@ -3,4 +3,6 @@
     android:id="@+id/listview"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" 
-    android:background="@drawable/md__list_selector_holo_dark"/>
+    android:background="@drawable/md__list_selector_holo_dark"
+    android:divider="@color/md__list_divider"
+    android:dividerHeight="1dp"/>

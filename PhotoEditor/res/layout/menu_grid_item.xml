@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="@drawable/grid_stroke">
+    android:background="@drawable/gri_selector_holo_dark"
+    
+    >
     
     <ImageView 
         android:id="@+id/menu_item"
