@@ -1,4 +1,4 @@
-package com.kt.mikky.moto.picky.effects.fragments;
+package com.kt.mikky.moto.pick.effects.fragments;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -24,9 +24,9 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.kt.mikky.moto.pick.effects.adapter.Category;
 import com.kt.mikky.moto.pick.effects.adapter.Item;
 import com.kt.mikky.moto.pick.effects.adapter.MenuAdapter;
+import com.kt.mikky.moto.pick.effects.fragments.ImageCropFragment;
+import com.kt.mikky.moto.pick.effects.fragments.MenuFragment;
 import com.kt.mikky.moto.pick.effects.utils.Utils;
-import com.kt.mikky.moto.picky.effects.fragments.ImageCropFragment;
-import com.kt.mikky.moto.picky.effects.fragments.MenuFragment;
 import com.kt.mikky.motto.pick.effects.image.processor.BitmapImage;
 
 public class MainActivity extends SherlockFragmentActivity implements
