@@ -13,105 +13,104 @@ import android.widget.TextView;
 
 import com.kt.mikky.motto.pick.effects.R;
 
-public class MenuGridAdapter extends BaseAdapter{
-	
-	  public interface MenuListener {
+public class MenuGridAdapter extends BaseAdapter {
 
-	        void onActiveViewChanged(View v);
-	    }
+	public interface MenuListener {
 
-	    private Context mContext;
+		void onActiveViewChanged(View v);
+	}
 
-	    private List<Object> mItems;
+	private Context mContext;
 
-	    private MenuListener mListener;
+	private List<Object> mItems;
 
-	    private int mActivePosition = -1;
+	private MenuListener mListener;
 
-	    public MenuGridAdapter(Context context, List<Object> items) {
-	        mContext = context;
-	        mItems = items;
-	    }
+	private int mActivePosition = -1;
 
-	    public void setListener(MenuListener listener) {
-	        mListener = listener;
-	    }
+	public MenuGridAdapter(Context context, List<Object> items) {
+		mContext = context;
+		mItems = items;
+	}
 
-	    public void setActivePosition(int activePosition) {
-	        mActivePosition = activePosition;
-	    }
+	public void setListener(MenuListener listener) {
+		mListener = listener;
+	}
 
-	    @Override
-	    public int getCount() {
-	        return mItems.size();
-	    }
+	public void setActivePosition(int activePosition) {
+		mActivePosition = activePosition;
+	}
 
-	    @Override
-	    public Object getItem(int position) {
-	        return mItems.get(position);
-	    }
+	@Override
+	public int getCount() {
+		return mItems.size();
+	}
 
-	    @Override
-	    public long getItemId(int position) {
-	        return position;
-	    }
+	@Override
+	public Object getItem(int position) {
+		return mItems.get(position);
+	}
 
-	    @Override
-	    public int getItemViewType(int position) {
-	        return getItem(position) instanceof Item ? 0 : 1;
-	    }
+	@Override
+	public long getItemId(int position) {
+		return position;
+	}
 
-	    @Override
-	    public int getViewTypeCount() {
-	        return 2;
-	    }
+	@Override
+	public int getItemViewType(int position) {
+		return getItem(position) instanceof Item ? 0 : 1;
+	}
 
-	    @Override
-	    public boolean isEnabled(int position) {
-	        return getItem(position) instanceof Item;
-	    }
+	@Override
+	public int getViewTypeCount() {
+		return 2;
+	}
 
-	    @Override
-	    public boolean areAllItemsEnabled() {
-	        return false;
-	    }
+	@Override
+	public boolean isEnabled(int position) {
+		return getItem(position) instanceof Item;
+	}
 
-	    @Override
-	    public View getView(int position, View convertView, ViewGroup parent) {
-	        View v = convertView;
-	        Object item = getItem(position);
+	@Override
+	public boolean areAllItemsEnabled() {
+		return false;
+	}
 
-	        if (item instanceof Category) {
-	            if (v == null) {
-	                v = LayoutInflater.from(mContext).inflate(R.layout.menu_row_category, parent, false);
-	            }
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		View v = convertView;
+		Object item = getItem(position);
 
-	            ((TextView) v).setText(((Category) item).mTitle);
+		if (item instanceof Category) {
+			if (v == null) {
+				v = LayoutInflater.from(mContext).inflate(
+						R.layout.menu_row_category, parent, false);
+			}
 
-	        } else {
-	            if (v == null) {
-	                v = LayoutInflater.from(mContext).inflate(R.layout.menu_grid_item, parent, false);
-	            }
+			((TextView) v).setText(((Category) item).mTitle);
 
-	            ImageView menuItemImage = (ImageView) v.findViewById(R.id.menu_item);
-	            menuItemImage.setImageResource(((Item) item).mIconRes);
-	            TextView menuItemText = (TextView) v.findViewById(R.id.title_menu_item);
-	            menuItemText.setText(((Item) item).mTitle);
-//	            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-//	                tv.setCompoundDrawablesRelativeWithIntrinsicBounds(((Item) item).mIconRes, 0, 0, 0);
-//	            } else {
-//	                tv.setCompoundDrawablesWithIntrinsicBounds(((Item) item).mIconRes, 0, 0, 0);
-//	            }
-	        }
+		} else {
+			if (v == null) {
+				v = LayoutInflater.from(mContext).inflate(
+						R.layout.menu_grid_item, parent, false);
+			}
 
-	        v.setTag(R.id.mdActiveViewPosition, position);
+			ImageView menuItemImage = (ImageView) v
+					.findViewById(R.id.menu_item);
+			menuItemImage.setImageResource(((Item) item).mIconRes);
+			TextView menuItemText = (TextView) v
+					.findViewById(R.id.title_menu_item);
+			menuItemText.setText(((Item) item).mTitle);
+			v.setId(((Item) item).mTitle);
+		}
 
-	        if (position == mActivePosition) {
-	            mListener.onActiveViewChanged(v);
-	        }
+		v.setTag(R.id.mdActiveViewPosition, position);
+		
+		if (position == mActivePosition) {
+			mListener.onActiveViewChanged(v);
+		}
 
-	        return v;
-	    }
-
+		return v;
+	}
 
 }

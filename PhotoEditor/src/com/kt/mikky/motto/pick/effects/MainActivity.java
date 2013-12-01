@@ -51,7 +51,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 	private int mActivePosition = 0;
 
 	ImageView imageToCrop;
-	Uri selectedImage;
+	public static Uri selectedImage;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +64,10 @@ public class MainActivity extends SherlockFragmentActivity implements
 		mDrawer.setDrawerIndicatorEnabled(true);
 
 		List<Object> items = new ArrayList<Object>();
-		items.add(new Item("Brightness", R.drawable.ic_menu_access_brightness_medium));
-		items.add(new Item("About", R.drawable.ic_action_about));
+		
+		items.add(new Item(R.string.md_crop, R.drawable.ic_images_crop));
+		items.add(new Item(R.string.md_brigtness, R.drawable.ic_menu_access_brightness_medium));
+		items.add(new Item(R.string.md_about, R.drawable.ic_action_about));
 		
 		
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -84,6 +86,12 @@ public class MainActivity extends SherlockFragmentActivity implements
 		mList.setOnItemClickListener(mItemClickListener);
 
 		mDrawer.setMenuView(mList);
+		
+		FragmentManager fmanager = getSupportFragmentManager();
+		FragmentTransaction ft = fmanager.beginTransaction();
+		
+		ft.add(R.id.container_frame, new MenuFragment(),MENU_FRAGMENT_TAG);			
+		ft.commit();
 		
 //		List<Object> griditems = new ArrayList<Object>();
 //		griditems.add(new Item("Pick From Album", R.drawable.ic_content_new_picture));
@@ -113,67 +121,65 @@ public class MainActivity extends SherlockFragmentActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu) {
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		//getSupportMenuInflater().inflate(R.menu.main, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(
-			com.actionbarsherlock.view.MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			mDrawer.toggleMenu();
-			break;
-		case R.id.action_pick_album:
-
-			Intent intent = new Intent(Intent.ACTION_PICK);
-			intent.setType("image/*");
-
-			try {
-				startActivityForResult(
-						Intent.createChooser(intent, "Complete action using"),
-						REQUEST_PICK_ALBUM);
-			} catch (ActivityNotFoundException e) {
-				Log.e("khader", "ActivityNotFoundException");
-			}
-
-			break;
-
-		case R.id.action_pick_save:
-
-			break;
-
-		case R.id.action_pick_camera:
-			if (Utils.isIntentAvailable(this, MediaStore.ACTION_IMAGE_CAPTURE)) {
-				Intent takePictureIntent = new Intent(
-						MediaStore.ACTION_IMAGE_CAPTURE);
-				startActivityForResult(takePictureIntent, REQUEST_PICK_CAMERA);
-			} else {
-				Log.d(TAG, "No Feature of Camera by default available");
-			}
-
-			break;
-
-		default:
-			break;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+//	@Override
+//	public boolean onOptionsItemSelected(
+//			com.actionbarsherlock.view.MenuItem item) {
+//		switch (item.getItemId()) {
+//		case android.R.id.home:
+//			mDrawer.toggleMenu();
+//			break;
+//		case R.id.action_pick_album:
+//
+//			Intent intent = new Intent(Intent.ACTION_PICK);
+//			intent.setType("image/*");
+//
+//			try {
+//				startActivityForResult(
+//						Intent.createChooser(intent, "Complete action using"),
+//						REQUEST_PICK_ALBUM);
+//			} catch (ActivityNotFoundException e) {
+//				Log.e("khader", "ActivityNotFoundException");
+//			}
+//
+//			break;
+//
+//		case R.id.action_pick_save:
+//
+//			break;
+//
+//		case R.id.action_pick_camera:
+//			if (Utils.isIntentAvailable(this, MediaStore.ACTION_IMAGE_CAPTURE)) {
+//				Intent takePictureIntent = new Intent(
+//						MediaStore.ACTION_IMAGE_CAPTURE);
+//				startActivityForResult(takePictureIntent, REQUEST_PICK_CAMERA);
+//			} else {
+//				Log.d(TAG, "No Feature of Camera by default available");
+//			}
+//
+//			break;
+//
+//		default:
+//			break;
+//		}
+//		return super.onOptionsItemSelected(item);
+//	}
 
 	@Override
 	protected void onStart() {
 		super.onStart();
-		FragmentManager fmanager = getSupportFragmentManager();
-		FragmentTransaction ft = fmanager.beginTransaction();
+	
 		
-		if (selectedImage != null) {
-			ft.replace(R.id.container_frame, new ImageCropFragment(selectedImage));
-			ft.addToBackStack(null);
-			ft.commit();
-		}else {			
-			ft.add(R.id.container_frame, new MenuFragment(),MENU_FRAGMENT_TAG);			
-			ft.commit();
-		}
+//		if (selectedImage != null) {
+//			ft.replace(R.id.container_frame, new ImageCropFragment(selectedImage));
+//			ft.addToBackStack(null);
+//			ft.commit();
+//		}else {			
+			
+//		}
 	}
 
 	@Override
@@ -181,7 +187,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		if ((requestCode == REQUEST_PICK_ALBUM || requestCode == REQUEST_PICK_CAMERA)
 				&& resultCode == RESULT_OK) {
 
-			selectedImage = data.getData();			
+			MainActivity.selectedImage = data.getData();			
 
 		}
 

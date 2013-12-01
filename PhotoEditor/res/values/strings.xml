@@ -2,10 +2,63 @@
 <resources>
 
     <string name="app_name">Photo Editor</string>
-  
     <string name="hello_world">Hello world!</string>
     <string name="pick_photo_save">Save</string>
     <string name="pick_photo_camera">Camera</string>
     <string name="pick_photo_album">Album</string>
+    
+    <!-- Related to satelitie View -->
+    
+     <string name="empty"></string>
+
+    <!-- Grid menu Names Strings -->
+
+    <string name="menu_pick_from_album">Pick From Album</string>
+    <string name="menu_take_picture">Take Picture</string>
+    <string name="menu_history">History</string>
+    <string name="menu_my_favourite">My Favourite</string>
+    <string name="menu_share_this_app">Share This App</string>
+    <string name="menu_about_us">About Us</string>
+
+    <!-- End of menu Names Strings -->
+
+
+    <!-- Please update tne images and names in sync -->
+
+    <string-array name="menu_grid_images">
+        <item>@drawable/ic_content_new_picture</item>
+        <item>@drawable/ic_device_access_camera</item>
+        <item>@drawable/ic_collections_go_to_today</item>
+        <item>@drawable/ic_rating_favorite</item>
+        <item>@drawable/ic_social_share</item>
+        <item>@drawable/ic_content_about</item>
+    </string-array>
+    <string-array name="menu_grid_names">
+        <item>@string/menu_pick_from_album</item>
+        <item>@string/menu_take_picture</item>
+        <item>@string/menu_history</item>
+        <item>@string/menu_my_favourite</item>
+        <item>@string/menu_share_this_app</item>
+        <item>@string/menu_about_us</item>
+    </string-array>
+
+    <!-- end of menu array items -->
+    
+    <!-- Menu Drawer Menu Items -->
+    
+    <string name="md_crop">Crop</string>
+    <string name="md_contrast">Contrast</string>
+    <string name="md_brigtness">Brightness</string>
+    <string name="md_about">About</string>    
+    
+    <!-- End of menu Drawer menu items -->
+    
+    <!-- Image Crop Fragment Texts  -->
+    
+    <string name="button_done">Done</string>
+    <string name="button_undo">Undo</string>  
+    
+    <!-- End of Image Crop Fragments Texts -->
+    
 
 </resources>
